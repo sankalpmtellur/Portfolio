@@ -171,7 +171,7 @@ export default function Hero() {
 
                             {/* Experience Badge */}
                             <motion.div
-                                className="absolute -bottom-4 -right-4 bg-white p-4 rounded-2xl shadow-xl border border-gray-100"
+                                className="absolute -bottom-2 -right-8 bg-white p-3 rounded-2xl shadow-xl border border-gray-100 z-20 w-45"
                                 initial={{ y: 20, opacity: 0 }}
                                 animate={{ y: 0, opacity: 1 }}
                                 transition={{ delay: 0.8 }}
@@ -191,7 +191,7 @@ export default function Hero() {
 
                             {/* Project Badge */}
                             <motion.div
-                                className="absolute -top-6 left-0 bg-white p-4 rounded-2xl shadow-xl border border-gray-100"
+                                className="absolute -top-4 -left-4 bg-white p-3 rounded-2xl shadow-xl border border-gray-100 z-20 w-45"
                                 initial={{ y: -20, opacity: 0 }}
                                 animate={{ y: 0, opacity: 1 }}
                                 transition={{ delay: 0.9 }}

@@ -1,5 +1,6 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { FaPython, FaHtml5, FaCss3Alt, FaReact, FaGithub, FaNodeJs, 
     FaDatabase, FaServer, FaMobileAlt, FaCode, FaCodeBranch, FaBrain, FaGamepad
 } from "react-icons/fa";
@@ -76,6 +77,7 @@ const skillCategories = [
 export default function Skills() {
     const [activeCategory, setActiveCategory] = useState('frontend');
     const [hoveredSkill, setHoveredSkill] = useState(null);
+    const navigate = useNavigate();
 
     const currentCategory = skillCategories.find(cat => cat.id === activeCategory);
 
@@ -200,7 +202,10 @@ export default function Skills() {
                             Currently diving deeper into advanced React patterns, performance optimization, 
                             and cloud architecture.
                         </p>
-                        <button className="px-6 py-2.5 bg-white text-blue-600 rounded-full font-medium shadow-sm hover:shadow-md transition-all duration-300 border border-blue-100 hover:border-blue-200">
+                        <button 
+                            onClick={() => navigate('/education')}
+                            className="px-6 py-2.5 bg-white text-blue-600 rounded-full font-medium shadow-sm hover:shadow-md transition-all duration-300 border border-blue-100 hover:border-blue-200 hover:bg-blue-50"
+                        >
                             View My Learning Path
                         </button>
                     </div>
