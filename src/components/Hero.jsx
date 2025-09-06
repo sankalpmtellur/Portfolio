@@ -1,15 +1,15 @@
 import { motion } from "framer-motion";
 import Typewriter from "typewriter-effect";
-import { FaGithub, FaLinkedin, FaTwitter, FaArrowRight } from "react-icons/fa";
-import { SiLeetcode } from "react-icons/si";
+import { FaGithub, FaArrowRight, FaInstagram } from "react-icons/fa";
+import { SiLeetcode, SiX } from "react-icons/si";
 import image from "../assets/sankalp.webp";
 
 export default function Hero() {
     const socialLinks = [
         { icon: <FaGithub />, url: "https://github.com/sankalpmtellur" },
-        { icon: <FaLinkedin className="text-[#0077b5]" />, url: "https://linkedin.com/in/sankalpmtellur" },
+        { icon: <FaInstagram className="text-pink-600" />, url: "https://www.instagram.com/sankalp_m_tellur/" },
         { icon: <SiLeetcode className="text-[#f89f1b]" />, url: "https://leetcode.com/sankalpmtellur/" },
-        { icon: <FaTwitter className="text-[#1DA1F2]" />, url: "https://twitter.com/sankalpmtellur" },
+        { icon: <SiX className="text-black" />, url: "https://x.com/sankalpmtellur" },
     ];
 
     return (
@@ -64,7 +64,7 @@ export default function Hero() {
                             transition={{ delay: 0.3 }}
                         >
                             <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-cyan-500">
-                                Sankalp Tellur
+                                Sankalp M Tellur
                             </span>
                         </motion.h1>
 
@@ -80,7 +80,7 @@ export default function Hero() {
                                         "Full Stack Developer",
                                         "Problem Solver",
                                         "Tech Enthusiast",
-                                        "Open Source Contributor"
+                                        "UI/UX Designer"
                                     ],
                                     autoStart: true,
                                     loop: true,
@@ -95,8 +95,7 @@ export default function Hero() {
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.6 }}
                         >
-                            I build exceptional digital experiences with clean, efficient code and modern technologies.
-                            Currently focused on creating impactful web applications and solving complex problems.
+                            An aspiring developer skilled in Python, DSA and JavaScript, with over 125+ Leetcode problems solved and a continuous drive to improve through challenges and hands-on projects.
                         </motion.p>
 
                         <motion.div

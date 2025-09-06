@@ -2,13 +2,11 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { FaPython, FaHtml5, FaCss3Alt, FaReact, FaGithub, FaNodeJs, 
-    FaDatabase, FaServer, FaMobileAlt, FaCode, FaCodeBranch, FaBrain, FaGamepad
+    FaDatabase, FaServer, FaMobileAlt, FaCode
 } from "react-icons/fa";
 import { 
     SiTailwindcss, SiSupabase, SiTypescript, SiExpress, SiNextdotjs, 
-    SiJavascript, SiRedux, SiMongodb, SiPostgresql, SiGraphql,
-    SiDocker, SiAmazonwebservices as SiAws, SiGit, SiJest, SiCypress, SiFigma, SiAdobexd,
-    SiTensorflow
+    SiJavascript, SiGit, SiFigma, SiCanva, SiVercel
 } from "react-icons/si";
 
 const skillCategories = [
@@ -17,14 +15,14 @@ const skillCategories = [
         title: 'Frontend',
         icon: <FaReact className="text-blue-500" />,
         skills: [
-            { name: 'React', level: 90, icon: <FaReact className="text-blue-500" /> },
-            { name: 'Next.js', level: 85, icon: <SiNextdotjs /> },
-            { name: 'JavaScript', level: 88, icon: <SiJavascript className="text-yellow-400" /> },
-            { name: 'TypeScript', level: 85, icon: <SiTypescript className="text-blue-600" /> },
-            { name: 'Redux', level: 80, icon: <SiRedux className="text-purple-500" /> },
-            { name: 'HTML5', level: 90, icon: <FaHtml5 className="text-orange-500" /> },
-            { name: 'CSS3', level: 85, icon: <FaCss3Alt className="text-blue-500" /> },
-            { name: 'Tailwind CSS', level: 88, icon: <SiTailwindcss className="text-cyan-400" /> },
+            { name: 'React', icon: <FaReact className="text-blue-500" /> },
+            { name: 'Next.js', icon: <SiNextdotjs /> },
+            { name: 'JavaScript', icon: <SiJavascript className="text-yellow-400" /> },
+            { name: 'TypeScript', icon: <SiTypescript className="text-blue-600" /> },
+            { name: 'HTML5', icon: <FaHtml5 className="text-orange-500" /> },
+            { name: 'CSS3', icon: <FaCss3Alt className="text-blue-500" /> },
+            { name: 'Tailwind CSS', icon: <SiTailwindcss className="text-cyan-400" /> },
+            { name: 'GSAP', icon: <FaCode className="text-green-500" /> },
         ]
     },
     {
@@ -32,11 +30,9 @@ const skillCategories = [
         title: 'Backend',
         icon: <FaServer className="text-green-500" />,
         skills: [
-            { name: 'Node.js', level: 85, icon: <FaNodeJs className="text-green-600" /> },
-            { name: 'Express', level: 82, icon: <SiExpress /> },
-            { name: 'Python', level: 88, icon: <FaPython className="text-blue-700" /> },
-            { name: 'RESTful APIs', level: 85, icon: <FaCodeBranch className="text-gray-600" /> },
-            { name: 'GraphQL', level: 78, icon: <SiGraphql className="text-pink-500" /> },
+            { name: 'Node.js', icon: <FaNodeJs className="text-green-600" /> },
+            { name: 'Express', icon: <SiExpress /> },
+            { name: 'Python', icon: <FaPython className="text-blue-700" /> },
         ]
     },
     {
@@ -44,9 +40,8 @@ const skillCategories = [
         title: 'Database',
         icon: <FaDatabase className="text-yellow-500" />,
         skills: [
-            { name: 'MongoDB', level: 85, icon: <SiMongodb className="text-green-500" /> },
-            { name: 'PostgreSQL', level: 80, icon: <SiPostgresql className="text-blue-600" /> },
-            { name: 'Supabase', level: 82, icon: <SiSupabase className="text-green-500" /> },
+            { name: 'MySQL', icon: <FaDatabase className="text-blue-600" /> },
+            { name: 'Supabase', icon: <SiSupabase className="text-green-500" /> },
         ]
     },
     {
@@ -54,12 +49,9 @@ const skillCategories = [
         title: 'Dev Tools',
         icon: <FaCode className="text-purple-500" />,
         skills: [
-            { name: 'Git', level: 88, icon: <SiGit className="text-orange-600" /> },
-            { name: 'GitHub', level: 90, icon: <FaGithub className="text-gray-800" /> },
-            { name: 'Docker', level: 75, icon: <SiDocker className="text-blue-500" /> },
-            { name: 'AWS', level: 70, icon: <SiAws className="text-orange-500" /> },
-            { name: 'Jest', level: 80, icon: <SiJest className="text-red-500" /> },
-            { name: 'Cypress', level: 75, icon: <SiCypress className="text-gray-700" /> },
+            { name: 'Git', icon: <SiGit className="text-orange-600" /> },
+            { name: 'GitHub', icon: <FaGithub className="text-gray-800" /> },
+            { name: 'Vercel', icon: <SiVercel className="text-black" /> },
         ]
     },
     {
@@ -67,9 +59,9 @@ const skillCategories = [
         title: 'UI/UX Design',
         icon: <FaMobileAlt className="text-pink-500" />,
         skills: [
-            { name: 'Figma', level: 85, icon: <SiFigma className="text-purple-600" /> },
-            { name: 'Adobe XD', level: 80, icon: <SiAdobexd className="text-pink-500" /> },
-            { name: 'Responsive Design', level: 90, icon: <FaMobileAlt className="text-blue-500" /> },
+            { name: 'Figma', icon: <SiFigma className="text-purple-600" /> },
+            { name: 'Canva', icon: <SiCanva className="text-blue-500" /> },
+            { name: 'Responsive Design', icon: <FaMobileAlt className="text-blue-500" /> },
         ]
     }
 ];
@@ -142,31 +134,20 @@ export default function Skills() {
                                 animate={{ opacity: 1, y: 0 }}
                                 exit={{ opacity: 0, y: -20 }}
                                 transition={{ duration: 0.3, delay: index * 0.05 }}
-                                onMouseEnter={() => setHoveredSkill(skill.name)}
-                                onMouseLeave={() => setHoveredSkill(null)}
                             >
-                                <div className={`p-6 bg-white rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-all duration-300 h-full flex flex-col items-center justify-center ${
-                                    hoveredSkill === skill.name ? 'transform -translate-y-1' : ''
-                                }`}>
-                                    <div className="text-4xl mb-3">
-                                        {skill.icon}
-                                    </div>
-                                    <h3 className="font-semibold text-gray-800 text-center">{skill.name}</h3>
-                                    
-                                    {/* Skill Level Indicator */}
-                                    <div className="w-full mt-4">
-                                        <div className="flex justify-between text-xs text-gray-500 mb-1">
-                                            <span>Proficiency</span>
-                                            <span>{skill.level}%</span>
+                                <div className="relative group">
+                                    <div className={`p-4 rounded-xl bg-white border-2 ${
+                                        hoveredSkill === index 
+                                            ? 'border-blue-500 shadow-lg scale-105' 
+                                            : 'border-gray-200 hover:border-blue-300'
+                                    } transition-all duration-300 h-full flex flex-col items-center justify-center`}
+                                         onMouseEnter={() => setHoveredSkill(index)}
+                                         onMouseLeave={() => setHoveredSkill(null)}
+                                    >
+                                        <div className="text-4xl mb-3">
+                                            {skill.icon}
                                         </div>
-                                        <div className="w-full bg-gray-200 rounded-full h-2">
-                                            <motion.div 
-                                                className="h-2 rounded-full bg-gradient-to-r from-blue-500 to-cyan-400"
-                                                initial={{ width: 0 }}
-                                                animate={{ width: `${skill.level}%` }}
-                                                transition={{ duration: 1, delay: 0.5 + (index * 0.05) }}
-                                            />
-                                        </div>
+                                        <h4 className="font-medium text-gray-800 text-center">{skill.name}</h4>
                                     </div>
                                 </div>
 

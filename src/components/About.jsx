@@ -11,17 +11,12 @@ export default function About() {
         { icon: <FaMapMarkerAlt className="text-xl text-blue-500" />, title: "Location", desc: "Delhi NCR, India" },
     ];
 
-    const skills = [
-        { name: "Problem Solving", level: 90, icon: <FaBrain className="text-blue-500" /> },
-        { name: "Web Development", level: 85, icon: <FaCode className="text-blue-500" /> },
-        { name: "DSA", level: 88, icon: <SiLeetcode className="text-[#f89f1b]" /> },
-        { name: "Chess", level: 75, icon: <FaChess className="text-blue-500" /> },
-    ];
+    const skills = [];
 
     return (
         <section id="about" className="py-20 bg-gradient-to-b from-white to-gray-50">
             <div className="max-w-7xl mx-auto px-6">
-                <motion.div 
+                <motion.div
                     className="text-center mb-16"
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -53,9 +48,9 @@ export default function About() {
                                     className="w-80 h-80 md:w-96 md:h-96 object-cover rounded-2xl shadow-2xl border-4 border-white"
                                 />
                             </div>
-                            
+
                             {/* Floating elements */}
-                            <motion.div 
+                            <motion.div
                                 className="absolute -bottom-6 -left-6 bg-white p-4 rounded-xl shadow-xl border border-gray-100"
                                 initial={{ y: 20, opacity: 0 }}
                                 whileInView={{ y: 0, opacity: 1 }}
@@ -88,19 +83,17 @@ export default function About() {
                         <div>
                             <h3 className="text-2xl font-semibold text-gray-800 mb-4">Who am I?</h3>
                             <p className="text-gray-600 leading-relaxed">
-                                I'm a passionate <span className="font-medium text-gray-800">Full Stack Developer</span> with a strong foundation in computer science and a love for solving complex problems. 
-                                My journey in technology started with a curiosity about how things work, which led me to pursue a degree in Computer Science and AI.
+                                I'm a <span className="font-medium text-gray-800">Computer Science student</span> passionate about problem-solving and building things with code. I've solve problems on LeetCode and enjoy tackling algorithmic challenges.
                             </p>
                             <p className="mt-4 text-gray-600 leading-relaxed">
-                                When I'm not coding, you can find me playing chess, solving algorithmic challenges on platforms like LeetCode, or exploring new technologies and frameworks. 
-                                I believe in continuous learning and pushing the boundaries of what's possible with code.
+                                I'm currently exploring web development and working on personal projects to improve my skills. When I'm not coding, you can find me playing chess or learning about new technologies.
                             </p>
                         </div>
 
                         {/* Stats Grid */}
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                             {stats.map((stat, index) => (
-                                <motion.div 
+                                <motion.div
                                     key={index}
                                     className="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300 border border-gray-100"
                                     initial={{ opacity: 0, y: 20 }}
@@ -119,39 +112,6 @@ export default function About() {
                             ))}
                         </div>
 
-                        {/* Skills Progress */}
-                        <div className="space-y-4">
-                            <h4 className="text-lg font-semibold text-gray-800">My Skills</h4>
-                            <div className="space-y-4">
-                                {skills.map((skill, index) => (
-                                    <motion.div 
-                                        key={index}
-                                        initial={{ opacity: 0, x: 20 }}
-                                        whileInView={{ opacity: 1, x: 0 }}
-                                        viewport={{ once: true }}
-                                        transition={{ delay: 0.1 * index }}
-                                    >
-                                        <div className="flex justify-between items-center mb-1">
-                                            <div className="flex items-center">
-                                                <span className="mr-2">{skill.icon}</span>
-                                                <span className="text-sm font-medium text-gray-700">{skill.name}</span>
-                                            </div>
-                                            <span className="text-xs font-medium text-blue-600">{skill.level}%</span>
-                                        </div>
-                                        <div className="w-full bg-gray-200 rounded-full h-2">
-                                            <motion.div 
-                                                className="h-2 rounded-full bg-gradient-to-r from-blue-500 to-cyan-400"
-                                                initial={{ width: 0 }}
-                                                whileInView={{ width: `${skill.level}%` }}
-                                                viewport={{ once: true }}
-                                                transition={{ duration: 1, delay: 0.2 * index }}
-                                            />
-                                        </div>
-                                    </motion.div>
-                                ))}
-                            </div>
-                        </div>
-
                         {/* CTA Button */}
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}
@@ -160,8 +120,8 @@ export default function About() {
                             transition={{ delay: 0.4 }}
                             className="pt-4"
                         >
-                            <a 
-                                href="#contact" 
+                            <a
+                                href="#contact"
                                 className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-600 to-cyan-500 text-white rounded-full font-medium hover:shadow-lg transition-all duration-300 hover:from-blue-700 hover:to-cyan-600"
                             >
                                 Get In Touch
