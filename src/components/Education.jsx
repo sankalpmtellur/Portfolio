@@ -8,22 +8,33 @@ export default function Education() {
       type: 'education',
       title: 'B.Tech in Computer Science',
       institution: 'Rishihood University',
-      period: '2021 - 2025',
+      period: '2024 - 2028',
       location: 'Sonipat, Haryana',
       description: 'Currently pursuing my Bachelor\'s degree with a focus on software development and machine learning.',
-      gpa: 'CGPA: 8.5/10',
-      link: 'https://www.rishihood.edu.in/'
+      gpa: 'CGPA: 8.53/10',
+      link: 'https://rishihood.edu.in/'
     },
     {
       id: 2,
       type: 'education',
       title: 'Higher Secondary (12th)',
-      institution: 'Kendriya Vidyalaya',
-      period: '2020 - 2021',
-      location: 'Delhi, India',
+      institution: 'Canara Vikaas PU College',
+      period: '2022 - 2024',
+      location: 'Mangalore, Karnataka',
       description: 'Completed 12th standard with Computer Science as main subject.',
-      gpa: 'Percentage: 85%',
-      link: '#'
+      gpa: 'Percentage: 86.1%',
+      link: 'https://canaravikaas.in/'
+    },
+    {
+      id: 3,
+      type: 'education',
+      title: 'Secondary School (10th)',
+      institution: 'Bhuvana Jyothi Residential School',
+      period: '2017 - 2022',
+      location: 'Mangalore, Karnataka',
+      description: 'Completed 10th standard with Science as main subject.',
+      gpa: 'Percentage: 89.2%',
+      link: 'https://bhuvanajyothi.edu.in/'
     }
   ];
 
@@ -31,20 +42,20 @@ export default function Education() {
     {
       id: 1,
       type: 'experience',
-      title: 'Frontend Developer Intern',
-      company: 'Tech Solutions Inc.',
-      period: 'June 2024 - Present',
+      title: 'Software Developer Intern',
+      company: 'Agroedge',
+      period: 'May 2025 - July 2025',
       location: 'Remote',
-      description: 'Working on building responsive web applications using React.js and modern frontend technologies.',
-      technologies: ['React', 'TypeScript', 'Tailwind CSS', 'Redux'],
-      link: '#'
+      description: 'Working on building responsive web applications using Typescript and modern frontend technologies.',
+      technologies: ['React', 'TypeScript', 'Tailwind CSS', 'Supabase'],
+      link: 'https://www.agroedge.in/',
     }
   ];
 
   return (
     <section id="education" className="pt-32 pb-20 bg-gray-50">
       <div className="max-w-7xl mx-auto px-6">
-        <motion.div 
+        <motion.div
           className="text-center mb-16"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -86,9 +97,9 @@ export default function Education() {
                           <span>{edu.institution}</span>
                         </div>
                       </div>
-                      <a 
-                        href={edu.link} 
-                        target="_blank" 
+                      <a
+                        href={edu.link}
+                        target="_blank"
                         rel="noopener noreferrer"
                         className="text-blue-500 hover:text-blue-600 transition-colors"
                       >
@@ -138,9 +149,9 @@ export default function Education() {
                           <span>{exp.company}</span>
                         </div>
                       </div>
-                      <a 
-                        href={exp.link} 
-                        target="_blank" 
+                      <a
+                        href={exp.link}
+                        target="_blank"
                         rel="noopener noreferrer"
                         className="text-blue-500 hover:text-blue-600 transition-colors"
                       >

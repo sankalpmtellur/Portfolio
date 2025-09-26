@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import Typewriter from "typewriter-effect";
-import { FaGithub, FaArrowRight, FaInstagram } from "react-icons/fa";
+import { FaGithub, FaArrowRight, FaInstagram, FaLinkedin } from "react-icons/fa";
 import { SiLeetcode, SiX } from "react-icons/si";
 import image from "../assets/sankalp.webp";
 
@@ -10,6 +10,7 @@ export default function Hero() {
         { icon: <FaInstagram className="text-pink-600" />, url: "https://www.instagram.com/sankalp_m_tellur/" },
         { icon: <SiLeetcode className="text-[#f89f1b]" />, url: "https://leetcode.com/sankalpmtellur/" },
         { icon: <SiX className="text-black" />, url: "https://x.com/sankalpmtellur" },
+        { icon: <FaLinkedin className="text-blue-700" />, url: "https://www.linkedin.com/in/sankalpmt/" },
     ];
 
     return (
