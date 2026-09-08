@@ -27,6 +27,7 @@ type Project = {
   description: string
   stack: string[]
   image: string
+  imageSmall: string
   url: string
   status?: string
   accent: string
@@ -46,10 +47,11 @@ const projects: Project[] = [
     description: 'A playful, tactile storefront for a startup rethinking how everyday accessories meet intelligence.',
     stack: ['TypeScript', 'Tailwind', 'GSAP'],
     image: '/assets/onyu.webp',
+    imageSmall: '/assets/onyu-800.webp',
     url: 'https://onyu-tech.vercel.app/',
     accent: 'coral',
-    imageWidth: 3006,
-    imageHeight: 1656,
+    imageWidth: 1600,
+    imageHeight: 882,
   },
   {
     title: 'Aikyam',
@@ -57,10 +59,11 @@ const projects: Project[] = [
     description: 'A clear digital home for Aikyam Women’s PG in Bangalore, built around trust and easy discovery.',
     stack: ['Next.js', 'Tailwind', 'React'],
     image: '/assets/aikyam.webp',
+    imageSmall: '/assets/aikyam-800.webp',
     url: 'https://aikyam-pg.vercel.app/',
     accent: 'blue',
-    imageWidth: 3006,
-    imageHeight: 1660,
+    imageWidth: 1600,
+    imageHeight: 884,
   },
   {
     title: 'Shweta Drug Distributors',
@@ -68,10 +71,11 @@ const projects: Project[] = [
     description: 'A full-stack platform for a wholesale medical store network in Karnataka.',
     stack: ['Next.js', 'Express.js', 'MongoDB', 'Prisma'],
     image: '/assets/shwetadrug.webp',
+    imageSmall: '/assets/shwetadrug-800.webp',
     url: 'https://shwetadrug.vercel.app/',
     accent: 'mint',
-    imageWidth: 3004,
-    imageHeight: 1658,
+    imageWidth: 1600,
+    imageHeight: 884,
   },
   {
     title: 'IRCTC / 3D',
@@ -79,11 +83,12 @@ const projects: Project[] = [
     description: 'An experimental 3D interface for a familiar travel experience — still in motion.',
     stack: ['TypeScript', 'Tailwind', 'Three.js'],
     image: '/assets/irctc.webp',
+    imageSmall: '/assets/irctc-800.webp',
     url: 'https://irctc-frontend-eight.vercel.app/',
     status: 'In progress',
     accent: 'violet',
-    imageWidth: 3002,
-    imageHeight: 1662,
+    imageWidth: 1600,
+    imageHeight: 886,
   },
 ]
 
@@ -244,7 +249,7 @@ function ProjectCard({ project, featured = false }: { project: Project; featured
       style={{ '--accent': `var(--${project.accent})` } as CSSProperties}
     >
       <div className="project-image-wrap">
-        <img src={project.image} alt={`${project.title} — ${project.label} project preview by Sankalp M Tellur`} width={project.imageWidth} height={project.imageHeight} loading="lazy" decoding="async" className="project-image" />
+        <img src={project.image} srcSet={`${project.imageSmall} 800w, ${project.image} 1600w`} sizes={featured ? '(max-width: 900px) calc(100vw - 3rem), calc(100vw - 5rem)' : '(max-width: 900px) calc(100vw - 3rem), 580px'} alt={`${project.title} — ${project.label} project preview by Sankalp M Tellur`} width={project.imageWidth} height={project.imageHeight} loading="lazy" decoding="async" className="project-image" />
         <div className="project-image-shade" />
         <a href={project.url} target="_blank" rel="noreferrer" className="project-open" aria-label={`Open ${project.title}`}>
           <FiExternalLink aria-hidden="true" />
@@ -270,8 +275,9 @@ function ProjectCard({ project, featured = false }: { project: Project; featured
 function App() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [activeSkill, setActiveSkill] = useState<'All' | Skill['category']>('All')
-  const [scrollProgress, setScrollProgress] = useState(0)
-  const [cursor, setCursor] = useState({ x: -100, y: -100 })
+  const scrollProgressRef = useRef<HTMLDivElement>(null)
+  const cursorGlowRef = useRef<HTMLDivElement>(null)
+  const cursorPositionRef = useRef({ x: -100, y: -100 })
 
   useEffect(() => {
     const revealElements = document.querySelectorAll('.reveal')
@@ -288,17 +294,35 @@ function App() {
   }, [])
 
   useEffect(() => {
+    let scrollFrame: number | null = null
+    let cursorFrame: number | null = null
+
     const updateScroll = () => {
-      const scrollable = document.documentElement.scrollHeight - window.innerHeight
-      setScrollProgress(scrollable > 0 ? (window.scrollY / scrollable) * 100 : 0)
+      if (scrollFrame !== null) return
+      scrollFrame = window.requestAnimationFrame(() => {
+        const scrollable = document.documentElement.scrollHeight - window.innerHeight
+        const progress = scrollable > 0 ? (window.scrollY / scrollable) * 100 : 0
+        if (scrollProgressRef.current) scrollProgressRef.current.style.width = `${progress}%`
+        scrollFrame = null
+      })
     }
-    const updateCursor = (event: MouseEvent) => setCursor({ x: event.clientX, y: event.clientY })
+    const updateCursor = (event: MouseEvent) => {
+      cursorPositionRef.current = { x: event.clientX, y: event.clientY }
+      if (cursorFrame !== null) return
+      cursorFrame = window.requestAnimationFrame(() => {
+        const { x, y } = cursorPositionRef.current
+        cursorGlowRef.current?.style.setProperty('transform', `translate3d(${x - 50}px, ${y - 50}px, 0)`)
+        cursorFrame = null
+      })
+    }
     window.addEventListener('scroll', updateScroll, { passive: true })
     window.addEventListener('mousemove', updateCursor, { passive: true })
     updateScroll()
     return () => {
       window.removeEventListener('scroll', updateScroll)
       window.removeEventListener('mousemove', updateCursor)
+      if (scrollFrame !== null) window.cancelAnimationFrame(scrollFrame)
+      if (cursorFrame !== null) window.cancelAnimationFrame(cursorFrame)
     }
   }, [])
 
@@ -314,8 +338,8 @@ function App() {
   return (
     <div className="site-shell">
       <a className="skip-link" href="#main-content">Skip to content</a>
-      <div className="cursor-glow" style={{ left: cursor.x, top: cursor.y }} aria-hidden="true" />
-      <div className="scroll-progress" style={{ width: `${scrollProgress}%` }} aria-hidden="true" />
+      <div ref={cursorGlowRef} className="cursor-glow" aria-hidden="true" />
+      <div ref={scrollProgressRef} className="scroll-progress" aria-hidden="true" />
 
       <header className="site-header">
         <div className="header-inner mx-auto flex w-full max-w-[1240px] items-center justify-between px-6 lg:px-10">
@@ -352,18 +376,18 @@ function App() {
             </Reveal>
 
             <Reveal className="hero-visual" delay={160}>
-              <div className="portrait-orbit orbit-one" />
-              <div className="portrait-orbit orbit-two" />
+              <div className="portrait-orbit orbit-one" aria-hidden="true" />
+              <div className="portrait-orbit orbit-two" aria-hidden="true" />
               <div className="portrait-card">
-                <img src="/assets/sankalp.webp" alt="Portrait of Sankalp M Tellur" width="1149" height="1369" loading="eager" fetchPriority="high" decoding="async" />
-                <div className="portrait-overlay" />
+                <img src="/assets/sankalp.webp" srcSet="/assets/sankalp-520.webp 520w, /assets/sankalp.webp 900w" sizes="(max-width: 640px) 230px, (max-width: 900px) 42vw, 355px" alt="Portrait of Sankalp M Tellur" width="900" height="1073" loading="eager" fetchPriority="high" decoding="async" />
+                <div className="portrait-overlay" aria-hidden="true" />
                 <div className="portrait-note"><span>01</span><strong>Curiosity<br />in progress.</strong></div>
                 <div className="portrait-scribble">build / learn / repeat</div>
               </div>
               <div className="floating-stamp stamp-top"><FiStar aria-hidden="true" /><span>Software<br />with intent</span></div>
               <div className="floating-stamp stamp-bottom"><FiCommand aria-hidden="true" /><span>Open to<br />new ideas</span></div>
-              <span className="visual-cross cross-one">+</span>
-              <span className="visual-cross cross-two">+</span>
+              <span className="visual-cross cross-one" aria-hidden="true">+</span>
+              <span className="visual-cross cross-two" aria-hidden="true">+</span>
             </Reveal>
           </div>
           <SignalRail />

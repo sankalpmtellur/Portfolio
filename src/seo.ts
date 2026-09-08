@@ -2,7 +2,7 @@
 export const SITE_URL = 'https://sankalpmtellur.online'
 export const SOCIAL_IMAGE_PATH = '/assets/onyu.webp'
 export const SOCIAL_IMAGE = `${SITE_URL}${SOCIAL_IMAGE_PATH}`
-export const DEFAULT_DESCRIPTION = 'Portfolio of Sankalp M Tellur, a Computer Science & AI student at Rishihood University building software, experimenting with AI, and exploring entrepreneurship.'
+export const DEFAULT_DESCRIPTION = 'Portfolio of Sankalp M Tellur, a Computer Science & AI student at Rishihood University building software projects, experimenting with AI, and exploring entrepreneurship.'
 
 export const routeSeo = {
   '/': {
