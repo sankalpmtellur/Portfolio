@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://sankalp-m-tellur.vercel.app/sitemap.xml

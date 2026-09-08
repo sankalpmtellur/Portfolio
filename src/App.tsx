@@ -30,6 +30,8 @@ type Project = {
   url: string
   status?: string
   accent: string
+  imageWidth: number
+  imageHeight: number
 }
 
 type Skill = {
@@ -46,6 +48,8 @@ const projects: Project[] = [
     image: '/assets/onyu.webp',
     url: 'https://onyu-tech.vercel.app/',
     accent: 'coral',
+    imageWidth: 3006,
+    imageHeight: 1656,
   },
   {
     title: 'Aikyam',
@@ -55,6 +59,8 @@ const projects: Project[] = [
     image: '/assets/aikyam.webp',
     url: 'https://aikyam-pg.vercel.app/',
     accent: 'blue',
+    imageWidth: 3006,
+    imageHeight: 1660,
   },
   {
     title: 'Shweta Drug Distributors',
@@ -64,6 +70,8 @@ const projects: Project[] = [
     image: '/assets/shwetadrug.webp',
     url: 'https://shwetadrug.vercel.app/',
     accent: 'mint',
+    imageWidth: 3004,
+    imageHeight: 1658,
   },
   {
     title: 'IRCTC / 3D',
@@ -74,6 +82,8 @@ const projects: Project[] = [
     url: 'https://irctc-frontend-eight.vercel.app/',
     status: 'In progress',
     accent: 'violet',
+    imageWidth: 3002,
+    imageHeight: 1662,
   },
 ]
 
@@ -227,14 +237,14 @@ function ProjectCard({ project, featured = false }: { project: Project; featured
   }
 
   return (
-    <div
+    <article
       className={`project-card ${featured ? 'project-card-featured' : ''}`}
       onMouseMove={tilt}
       onMouseLeave={resetTilt}
       style={{ '--accent': `var(--${project.accent})` } as CSSProperties}
     >
       <div className="project-image-wrap">
-        <img src={project.image} alt={`${project.title} project preview`} className="project-image" />
+        <img src={project.image} alt={`${project.title} — ${project.label} project preview by Sankalp M Tellur`} width={project.imageWidth} height={project.imageHeight} loading="lazy" decoding="async" className="project-image" />
         <div className="project-image-shade" />
         <a href={project.url} target="_blank" rel="noreferrer" className="project-open" aria-label={`Open ${project.title}`}>
           <FiExternalLink aria-hidden="true" />
@@ -253,7 +263,7 @@ function ProjectCard({ project, featured = false }: { project: Project; featured
           {project.stack.map((item) => <span key={item}>{item}</span>)}
         </div>
       </div>
-    </div>
+    </article>
   )
 }
 
@@ -303,6 +313,7 @@ function App() {
 
   return (
     <div className="site-shell">
+      <a className="skip-link" href="#main-content">Skip to content</a>
       <div className="cursor-glow" style={{ left: cursor.x, top: cursor.y }} aria-hidden="true" />
       <div className="scroll-progress" style={{ width: `${scrollProgress}%` }} aria-hidden="true" />
 
@@ -312,7 +323,7 @@ function App() {
             <span className="brand-monogram">SMT</span>
             <span className="brand-caption">PORTFOLIO</span>
           </button>
-          <nav className={`desktop-nav ${menuOpen ? 'nav-open' : ''}`} aria-label="Primary navigation">
+          <nav id="primary-navigation" className={`desktop-nav ${menuOpen ? 'nav-open' : ''}`} aria-label="Primary navigation">
             {navItems.map((item) => (
               <button key={item.target} onClick={() => handleNav(item.target)}>
                 <span className="nav-number"></span>{item.label}
@@ -320,13 +331,13 @@ function App() {
             ))}
             <a className="header-contact" href="mailto:sankalp.tellur2024@nst.rishihood.edu.in">Say hello <FiArrowUpRight aria-hidden="true" /></a>
           </nav>
-          <button className="mobile-menu-button" onClick={() => setMenuOpen((open) => !open)} aria-label={menuOpen ? 'Close menu' : 'Open menu'} aria-expanded={menuOpen}>
+          <button className="mobile-menu-button" onClick={() => setMenuOpen((open) => !open)} aria-label={menuOpen ? 'Close menu' : 'Open menu'} aria-expanded={menuOpen} aria-controls="primary-navigation">
             {menuOpen ? <FiX /> : <FiMenu />}
           </button>
         </div>
       </header>
 
-      <main>
+      <main id="main-content">
         <section id="top" className="hero-section">
           <div className="hero-grid mx-auto grid w-full max-w-[1240px] px-6 lg:px-10">
             <Reveal className="hero-copy">
@@ -344,7 +355,7 @@ function App() {
               <div className="portrait-orbit orbit-one" />
               <div className="portrait-orbit orbit-two" />
               <div className="portrait-card">
-                <img src="/assets/sankalp.webp" alt="Sankalp M Tellur" />
+                <img src="/assets/sankalp.webp" alt="Portrait of Sankalp M Tellur" width="1149" height="1369" loading="eager" fetchPriority="high" decoding="async" />
                 <div className="portrait-overlay" />
                 <div className="portrait-note"><span>01</span><strong>Curiosity<br />in progress.</strong></div>
                 <div className="portrait-scribble">build / learn / repeat</div>

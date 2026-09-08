@@ -1,0 +1,23 @@
+SEO implementation summary
+
+1. SEO changes made
+- Added production metadata: title, description, keywords, author, robots, language, viewport, theme-color, and light color-scheme.
+- Added canonical URL, Open Graph metadata, Twitter/X card metadata, and a social preview image using the existing Onyu asset.
+- Added Person and WebSite JSON-LD structured data for Sankalp M Tellur.
+- Added route-aware metadata updates for the React Router app.
+- Added public/robots.txt and public/sitemap.xml for crawlability and indexing.
+- Added semantic project articles, skip navigation, meaningful image alt text, image dimensions, lazy loading, async decoding, and eager loading for the hero portrait.
+- Preserved the existing UI, animations, content flow, routing, and Vercel rewrite configuration.
+
+2. Files added or modified
+- Added src/seo.ts.
+- Modified index.html, src/main.tsx, and src/App.tsx.
+- Added public/robots.txt and public/sitemap.xml.
+- Replaced this note.txt with this summary as requested.
+
+3. Custom domain follow-up
+- Update SITE_URL in src/seo.ts and replace https://sankalp-m-tellur.vercel.app in index.html, public/robots.txt, and public/sitemap.xml with the final custom domain.
+- Verify the final canonical URL, social image URL, robots.txt, and sitemap.xml after deployment.
+
+Validation
+- npm run build passes successfully.
