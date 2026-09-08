@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import type { CSSProperties, MouseEvent as ReactMouseEvent, ReactNode } from 'react'
 import { gsap } from 'gsap'
 import {
@@ -326,9 +326,7 @@ function App() {
     }
   }, [])
 
-  const visibleSkills = useMemo(() => (
-    activeSkill === 'All' ? skills : skills.filter((skill) => skill.category === activeSkill)
-  ), [activeSkill])
+  const visibleSkills = activeSkill === 'All' ? skills : skills.filter((skill) => skill.category === activeSkill)
 
   const handleNav = (target: string) => {
     setMenuOpen(false)
@@ -350,7 +348,7 @@ function App() {
           <nav id="primary-navigation" className={`desktop-nav ${menuOpen ? 'nav-open' : ''}`} aria-label="Primary navigation">
             {navItems.map((item) => (
               <button key={item.target} onClick={() => handleNav(item.target)}>
-                <span className="nav-number"></span>{item.label}
+                {item.label}
               </button>
             ))}
             <a className="header-contact" href="mailto:sankalp.tellur2024@nst.rishihood.edu.in">Say hello <FiArrowUpRight aria-hidden="true" /></a>
