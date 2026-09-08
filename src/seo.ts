@@ -1,4 +1,5 @@
-export const SITE_URL = 'https://sankalp-m-tellur.vercel.app'
+// Keep SEO URLs on the custom domain. The Vercel deployment alias is https://smt2006.vercel.app.
+export const SITE_URL = 'https://sankalpmtellur.online'
 export const SOCIAL_IMAGE_PATH = '/assets/onyu.webp'
 export const SOCIAL_IMAGE = `${SITE_URL}${SOCIAL_IMAGE_PATH}`
 export const DEFAULT_DESCRIPTION = 'Portfolio of Sankalp M Tellur, a Computer Science & AI student at Rishihood University building software, experimenting with AI, and exploring entrepreneurship.'

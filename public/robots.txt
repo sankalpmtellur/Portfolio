@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://sankalp-m-tellur.vercel.app/sitemap.xml
+Sitemap: https://sankalpmtellur.online/sitemap.xml

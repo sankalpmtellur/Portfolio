@@ -1,23 +1,40 @@
-SEO implementation summary
+Improve the existing portfolio so it has the best practical chance of appearing in search results for searches related to “Sankalp M Tellur” and also loads as fast as possible.
 
-1. SEO changes made
-- Added production metadata: title, description, keywords, author, robots, language, viewport, theme-color, and light color-scheme.
-- Added canonical URL, Open Graph metadata, Twitter/X card metadata, and a social preview image using the existing Onyu asset.
-- Added Person and WebSite JSON-LD structured data for Sankalp M Tellur.
-- Added route-aware metadata updates for the React Router app.
-- Added public/robots.txt and public/sitemap.xml for crawlability and indexing.
-- Added semantic project articles, skip navigation, meaningful image alt text, image dimensions, lazy loading, async decoding, and eager loading for the hero portrait.
-- Preserved the existing UI, animations, content flow, routing, and Vercel rewrite configuration.
+Do not redesign the website or change its current visual identity, animations, routing, or content unless necessary.
 
-2. Files added or modified
-- Added src/seo.ts.
-- Modified index.html, src/main.tsx, and src/App.tsx.
-- Added public/robots.txt and public/sitemap.xml.
-- Replaced this note.txt with this summary as requested.
+SEO:
 
-3. Custom domain follow-up
-- Update SITE_URL in src/seo.ts and replace https://sankalp-m-tellur.vercel.app in index.html, public/robots.txt, and public/sitemap.xml with the final custom domain.
-- Verify the final canonical URL, social image URL, robots.txt, and sitemap.xml after deployment.
+* Audit the current SEO implementation and fix anything incomplete or incorrect.
+* Make `https://sankalpmtellur.online` the single primary domain everywhere.
+* Ensure canonical URLs, sitemap, robots.txt, Open Graph, Twitter metadata, and JSON-LD all use the custom domain correctly.
+* Add strong but natural page titles and descriptions centered around “Sankalp M Tellur”, portfolio, software development, computer science, AI, projects, and other relevant information available in the project.
+* Ensure every important public route is indexable and included in the sitemap.
+* Improve internal linking between important pages.
+* Ensure semantic heading structure and accessible descriptive links.
+* Prevent duplicate-indexing issues from the Vercel deployment URL where possible.
+* Do not keyword-stuff or use any spammy SEO techniques.
 
-Validation
-- npm run build passes successfully.
+Performance:
+
+* Audit the complete frontend for loading-speed and Core Web Vitals improvements.
+* Optimize/compress images and use modern formats where appropriate without noticeably reducing quality.
+* Serve correctly sized responsive images and avoid unnecessarily large image downloads.
+* Lazy-load below-the-fold images/components while keeping important hero content prioritized.
+* Reduce unnecessary JavaScript, CSS, dependencies, and unused code.
+* Apply route/component code splitting where beneficial.
+* Optimize font loading and prevent unnecessary font requests or layout shifts.
+* Preload only genuinely critical assets.
+* Reduce render-blocking resources.
+* Prevent unnecessary React re-renders where meaningful.
+* Minimize layout shifts and improve LCP, CLS, and INP.
+* Preserve smooth animations, but make them performance-efficient.
+* Ensure production assets use proper caching and hashed filenames through the existing build setup.
+* Do not add unnecessary packages just for optimization.
+
+After making the changes:
+
+1. Run the production build and fix all errors.
+2. Check for obvious broken routes or visual regressions.
+3. Give me a short summary of SEO improvements made.
+4. Give me a short summary of performance improvements made.
+5. Mention anything I still need to configure manually in Vercel, my domain provider, Google Search Console, or Bing Webmaster Tools.
