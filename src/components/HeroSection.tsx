@@ -7,9 +7,8 @@ export function HeroSection({ onNavigate }: { onNavigate: (target: string) => vo
     <section id="top" className="hero-section">
       <div className="hero-grid mx-auto grid w-full max-w-[1240px] px-6 lg:px-10">
         <Reveal className="hero-copy">
-          <div className="hero-kicker"><span className="live-dot" /> Software developer · full-stack · AI projects</div>
           <h1>Full-stack software<br />for <span className="headline-accent">real work</span><span className="headline-period">.</span></h1>
-          <p className="hero-lede">I’m <b>Sankalp</b> — a software developer with experience in full-stack development, frontend development, and AI-based projects.</p>
+          <p className="hero-lede">I'm <b>Sankalp</b> — a software developer with experience in full-stack development, frontend development, and AI-based projects.</p>
           <div className="hero-actions">
             <button className="button button-primary" onClick={() => onNavigate('work')}>See selected work <FiArrowRight aria-hidden="true" /></button>
             <button className="text-button" onClick={() => onNavigate('about')}>A little about me <FiArrowDown aria-hidden="true" /></button>
