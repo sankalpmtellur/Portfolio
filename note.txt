@@ -1,0 +1,274 @@
+Please improve my portfolio based on the current codebase and the requirements below.
+
+Goal:
+Make the portfolio stronger for software engineering / full-stack / AI internship applications, especially for startups. Keep the current visual identity and design language. Do not make the site look generic or over-designed. Preserve the current animations and overall style unless a change is required for usability or accessibility.
+
+Please implement the following changes carefully:
+
+1. Add my Software Engineering Internship experience
+
+Add a proper Experience / Internship section.
+
+Details:
+Company: AgroEdge
+Role: Software Engineer Intern
+Duration: April 2025 - July 2025
+Work mode: Remote
+
+Description:
+During my three-month internship at AgroEdge, I worked on both the main website and the operations platform using TypeScript, Tailwind CSS, Supabase, Calendly, and Figma. I implemented multi-language support for 20+ Indian and international languages and worked on frontend UI improvements. I also independently built the mentorship module for Admin, Mentor, and Farmer roles, integrating Calendly for session scheduling and Supabase for authentication, data management, and role-based access. I designed the module’s UI/UX in Figma and worked closely with my manager and team to build and improve the features.
+
+Keep the presentation concise and suitable for a portfolio.
+
+2. Add Purchase Assistant project
+
+Project name:
+Purchase Assistant
+
+Status:
+In Progress
+
+Description:
+Developing an AI-powered purchase assistant to automate order processing. The agent captures and processes order details and updates the database after human verification, with the goal of reducing employees’ manual workload.
+
+Position this as one of my most important projects because it shows AI + automation + backend/database work.
+
+Do not invent technologies that are not already known from the project code. If the project repository is available locally or linked somewhere in the codebase, inspect it before listing technologies.
+
+3. Update Shweta Drug Distributors
+
+Mark the project clearly as:
+In Progress
+
+Use this description:
+Developing a full-stack website for Shweta Drug Distributors to establish their online presence and automate business workflows, with the goal of reducing employees’ manual workload by approximately 30%.
+
+Do not present the 30% reduction as an already achieved result.
+
+Current known stack:
+Next.js, Express.js, MongoDB, Prisma
+
+4. Reorder projects
+
+Use this priority where possible:
+
+1. Purchase Assistant
+2. Shweta Drug Distributors
+3. Onyu
+4. Aikyam
+5. IRCTC / 3D
+
+The first projects should communicate:
+AI + full-stack + real-world business work
+
+rather than only frontend/design work.
+
+5. Add GitHub links to project cards
+
+Currently the cards mainly show live links.
+
+Add:
+- GitHub button/link
+- Live Demo button/link where available
+
+Use clean icons and maintain the current design style.
+
+If a GitHub URL is not already available in the codebase, do not invent one. Leave a clear placeholder/comment for me to fill later.
+
+6. Update Onyu description
+
+Replace overly marketing-style wording with something simpler:
+
+Built a frontend website for Onyu, a startup developing a smart ring, to showcase the product, its features, and brand.
+
+7. Keep Aikyam concise
+
+Keep its description straightforward and professional. Do not use excessive marketing-style language.
+
+8. Improve the Skills section
+
+Make sure the important technical skills are clearly visible:
+
+Languages:
+Python, JavaScript, TypeScript, HTML, CSS
+
+Frameworks & Technologies:
+React, Next.js, Node.js, Express.js, Tailwind CSS, Supabase
+
+Databases & Tools:
+MongoDB, MySQL, Git, GitHub, Figma, Pandas
+
+Also keep relevant existing skills such as:
+GSAP
+
+AI-related skills should only be listed if supported by actual project work.
+
+Entrepreneurship and Product Thinking may remain, but technical skills should have higher visual priority.
+
+9. Add achievements if it fits naturally
+
+Add a small Achievements section or integrate achievements cleanly into the existing layout.
+
+Achievement:
+Solved 150+ LeetCode problems and earned the 100 Days Badge for consistent coding and problem-solving.
+
+Do not make this section too large.
+
+10. Improve professional links
+
+Keep:
+LinkedIn
+GitHub
+
+Add:
+LeetCode
+
+Replace Instagram from the main professional/social area unless it fits naturally in a secondary location.
+
+Also consider adding a Resume button near the hero section.
+
+Use a placeholder path if the resume file is not present yet.
+
+11. Hero / first impression
+
+The first screen should communicate clearly that I am a:
+Software Developer / Full-Stack Developer interested in AI
+
+Keep the wording simple and natural.
+
+Avoid AI-generated sounding phrases or exaggerated claims.
+
+A suitable tone is:
+Software developer with experience in full-stack development, frontend development, and AI-based projects.
+
+Do not overstuff the hero with text.
+
+12. Fix grammar issues
+
+Correct:
+“interest in building startup”
+
+to:
+“interest in building startups”
+
+Also review the entire portfolio copy for:
+- grammar
+- consistency
+- capitalization
+- unnecessary marketing language
+- awkward wording
+
+Keep the writing simple and human.
+
+13. Fix accessibility issues from the previous audit
+
+Please fix:
+- low contrast muted text where practical
+- missing keyboard :focus visibility on project links
+- incomplete ARIA tab semantics
+- reduced-motion handling for cursor tracking and card tilt if needed
+- any hover-only interaction that keyboard users cannot access
+
+Do not significantly change the visual design.
+
+14. Fix the featured project layout bug
+
+The previous audit found that Onyu was intended to span two project-grid columns, but the Reveal wrapper is the actual grid child, preventing the span from working correctly.
+
+Fix the structure so featured project sizing works properly.
+
+Since the project order is changing, decide which project should be visually featured based on relevance.
+
+Purchase Assistant or Shweta Drug Distributors would be better candidates than Onyu.
+
+15. Improve project card information
+
+Each project card should ideally show:
+- project name
+- short description
+- technologies
+- status if in progress
+- GitHub link
+- live link if available
+
+Keep cards clean and not overcrowded.
+
+16. Improve project impact wording
+
+Where impact is known, show it carefully.
+
+Examples:
+- 20+ languages implemented during AgroEdge internship
+- Shweta Drug Distributors targets ~30% reduction in manual workload
+- Purchase Assistant is designed to reduce manual order-entry work
+
+Do not present future targets as completed achievements.
+
+17. SEO improvements
+
+Keep the current strong SEO setup.
+
+Also consider adding:
+- SoftwareApplication / CreativeWork / ItemList structured data for projects if appropriate
+- updated meta description reflecting full-stack + AI work
+- relevant project information in structured data
+
+Do not over-optimize or keyword-stuff.
+
+18. Code structure
+
+App.tsx is currently very large.
+
+Refactor it into reusable components where useful, for example:
+
+components/
+- Hero.tsx
+- About.tsx
+- Experience.tsx
+- Projects.tsx
+- ProjectCard.tsx
+- Skills.tsx
+- Education.tsx
+- Achievements.tsx
+- Contact.tsx
+
+Move project/skill/education data into clean data structures if appropriate.
+
+Do not refactor unnecessarily if it risks breaking the design.
+
+19. Code quality
+
+Add or improve:
+- lint script
+- basic lint configuration
+- consistent formatting
+- dependency version stability where practical
+
+Do not add heavy dependencies unless necessary.
+
+20. Final verification
+
+After completing the changes:
+
+- Run TypeScript checks
+- Run production build
+- Check for broken imports
+- Check responsive behavior
+- Check mobile layout
+- Check keyboard navigation
+- Check project links
+- Check console errors
+
+Then give me a concise report containing:
+
+1. Files changed
+2. Sections added or modified
+3. Any placeholders I still need to fill
+4. Any links or information that were unavailable
+5. Build/type-check result
+6. Any remaining recommended improvements
+
+Important:
+Do not invent project details, technologies, statistics, links, or achievements.
+Preserve the current visual identity.
+Prefer simple, professional wording over marketing-style language.
