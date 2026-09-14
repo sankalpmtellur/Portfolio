@@ -1,4 +1,5 @@
-import { FiAward, FiCode } from 'react-icons/fi'
+import { FiAward, FiExternalLink } from 'react-icons/fi'
+import { leetcodeCertificateUrl } from '../data/portfolio'
 import { Reveal } from './Reveal'
 import { SectionIntro } from './SectionIntro'
 
@@ -11,12 +12,10 @@ export function AchievementsSection() {
           <article className="achievement-card">
             <div className="achievement-icon"><FiAward aria-hidden="true" /></div>
             <div><p className="achievement-label">Coding practice</p><h3>150+ LeetCode problems</h3><p>Solved 150+ LeetCode problems and earned the 100 Days Badge for consistent coding and problem-solving.</p></div>
-            {/* Add the personal LeetCode profile URL when it is available. */}
-            <span className="achievement-link-placeholder"><FiCode aria-hidden="true" /> LeetCode profile link to add</span>
+            <a className="achievement-link" href={leetcodeCertificateUrl} target="_blank" rel="noopener noreferrer"><FiExternalLink aria-hidden="true" /> View certificate</a>
           </article>
         </Reveal>
       </div>
     </section>
   )
 }
-

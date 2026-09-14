@@ -7,14 +7,13 @@ export type Project = {
   image?: string
   imageSmall?: string
   url?: string
-  githubUrl?: string
   status?: string
   accent: 'coral' | 'blue' | 'mint' | 'violet'
   imageWidth?: number
   imageHeight?: number
 }
 
-export type SkillCategory = 'Languages' | 'Frameworks & Technologies' | 'Databases & Tools' | 'Thinking' | 'Shape'
+export type SkillCategory = 'Languages' | 'Frameworks & Technologies' | 'Databases & Tools' | 'Thinking'
 
 export type Skill = {
   name: string
@@ -27,10 +26,9 @@ export const projects: Project[] = [
     label: 'AI purchase automation',
     description: 'Developing an AI-powered purchase assistant to automate order processing. The agent captures and processes order details and updates the database after human verification, with the goal of reducing employees’ manual workload.',
     stack: [],
-    stackNote: 'Technology stack to be added',
+    stackNote: 'Windows desktop executable · preview unavailable',
     status: 'In progress',
     accent: 'violet',
-    // Add the project preview and repository URL when they are available.
   },
   {
     title: 'Shweta Drug Distributors',
@@ -44,7 +42,6 @@ export const projects: Project[] = [
     accent: 'mint',
     imageWidth: 1600,
     imageHeight: 884,
-    // TODO: add the GitHub repository URL when it is available.
   },
   {
     title: 'Onyu',
@@ -57,7 +54,6 @@ export const projects: Project[] = [
     accent: 'coral',
     imageWidth: 1600,
     imageHeight: 882,
-    // TODO: add the GitHub repository URL when it is available.
   },
   {
     title: 'Aikyam',
@@ -70,7 +66,6 @@ export const projects: Project[] = [
     accent: 'blue',
     imageWidth: 1600,
     imageHeight: 884,
-    // TODO: add the GitHub repository URL when it is available.
   },
   {
     title: 'IRCTC / 3D',
@@ -84,7 +79,6 @@ export const projects: Project[] = [
     accent: 'violet',
     imageWidth: 1600,
     imageHeight: 886,
-    // TODO: add the GitHub repository URL when it is available.
   },
 ]
 
@@ -92,8 +86,6 @@ export const skills: Skill[] = [
   { name: 'Python', category: 'Languages' },
   { name: 'JavaScript', category: 'Languages' },
   { name: 'TypeScript', category: 'Languages' },
-  { name: 'HTML', category: 'Languages' },
-  { name: 'CSS', category: 'Languages' },
   { name: 'React', category: 'Frameworks & Technologies' },
   { name: 'Next.js', category: 'Frameworks & Technologies' },
   { name: 'Node.js', category: 'Frameworks & Technologies' },
@@ -102,17 +94,14 @@ export const skills: Skill[] = [
   { name: 'Supabase', category: 'Frameworks & Technologies' },
   { name: 'MongoDB', category: 'Databases & Tools' },
   { name: 'MySQL', category: 'Databases & Tools' },
-  { name: 'Git', category: 'Databases & Tools' },
   { name: 'GitHub', category: 'Databases & Tools' },
   { name: 'Figma', category: 'Databases & Tools' },
   { name: 'Pandas', category: 'Databases & Tools' },
   { name: 'AI-based projects', category: 'Thinking' },
   { name: 'Entrepreneurship', category: 'Thinking' },
-  { name: 'Product thinking', category: 'Thinking' },
-  { name: 'GSAP', category: 'Shape' },
 ]
 
-export const skillFilters: Array<'All' | SkillCategory> = ['All', 'Languages', 'Frameworks & Technologies', 'Databases & Tools', 'Thinking', 'Shape']
+export const skillFilters: Array<'All' | SkillCategory> = ['All', 'Languages', 'Frameworks & Technologies', 'Databases & Tools', 'Thinking']
 
 export const navItems = [
   { label: 'About', target: 'about' },
@@ -126,5 +115,8 @@ export const socialLinks = [
   { label: 'GitHub', href: 'https://github.com/sankalpmtellur' },
 ]
 
-export const signalItems = ['FRONTEND', 'FULL-STACK', 'AI PROJECTS', 'PRODUCT THINKING']
+export const signalItems = ['FRONTEND', 'FULL-STACK', 'AI PROJECTS']
 export const signalGroupCount = 6
+
+export const leetcodeProfileUrl = 'https://leetcode.com/u/sankalpmtellur/'
+export const leetcodeCertificateUrl = 'https://drive.google.com/file/d/1Nv_6dsOLp9GV6YUZs9FUHlnaww5ia6nn/view'

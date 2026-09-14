@@ -12,8 +12,7 @@ export function HeroSection({ onNavigate }: { onNavigate: (target: string) => vo
           <div className="hero-actions">
             <button className="button button-primary" onClick={() => onNavigate('work')}>See selected work <FiArrowRight aria-hidden="true" /></button>
             <button className="text-button" onClick={() => onNavigate('about')}>A little about me <FiArrowDown aria-hidden="true" /></button>
-            {/* Placeholder until a resume PDF is added to public/resume.pdf. */}
-            <a className="text-button hero-resume" href="/resume.pdf" aria-label="Open resume PDF placeholder">Resume <FiArrowUpRight aria-hidden="true" /></a>
+            <a className="text-button hero-resume" href="/resume.pdf" target="_blank" rel="noreferrer" aria-label="Open resume PDF">Resume <FiArrowUpRight aria-hidden="true" /></a>
           </div>
           <div className="hero-footnote"><FiMapPin aria-hidden="true" /> Rishihood University <span /> 3rd year · CS &amp; AI</div>
         </Reveal>

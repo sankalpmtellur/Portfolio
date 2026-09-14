@@ -1147,6 +1147,7 @@ a {
   margin: 0;
   max-width: 520px;
 }
+.achievement-link,
 .achievement-link-placeholder {
   align-items: center;
   color: #54534e;
@@ -1155,8 +1156,22 @@ a {
   font-weight: 800;
   gap: 7px;
   letter-spacing: 0.05em;
+  padding-bottom: 4px;
   text-transform: uppercase;
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease;
 }
+.achievement-link {
+  border-bottom: 1px solid rgba(28, 28, 27, 0.28);
+  color: var(--ink);
+}
+.achievement-link:hover,
+.achievement-link:focus-visible {
+  border-color: var(--coral);
+  color: var(--coral);
+}
+.achievement-link svg,
 .achievement-link-placeholder svg {
   color: var(--coral);
   font-size: 15px;
@@ -1403,7 +1418,7 @@ a {
 }
 .footer-monogram {
   font-family: "Signika Negative", sans-serif;
-  font-size: 26px;
+  font-size: 30px;
   font-weight: 600;
   letter-spacing: -0.09em;
 }
@@ -1412,13 +1427,15 @@ a {
 }
 .footer-inner p {
   color: rgba(247, 245, 239, 0.64);
-  font-size: 10px;
+  font-size: 13px;
+  line-height: 1.45;
   margin: 8px 0 0;
 }
 .footer-links {
   align-items: center;
   display: flex;
-  gap: 19px;
+  flex-wrap: wrap;
+  gap: 22px;
   justify-content: center;
 }
 .footer-links a,
@@ -1427,7 +1444,7 @@ a {
   align-items: center;
   color: rgba(247, 245, 239, 0.82);
   display: inline-flex;
-  font-size: 10px;
+  font-size: 13px;
   font-weight: 700;
   gap: 7px;
   letter-spacing: 0.04em;
@@ -1445,7 +1462,7 @@ a {
 .footer-links svg,
 .footer-link-placeholder svg,
 .footer-right button svg {
-  font-size: 14px;
+  font-size: 16px;
 }
 .footer-right {
   align-items: flex-end;
@@ -1770,6 +1787,7 @@ a {
     gap: 14px;
     grid-template-columns: auto 1fr;
   }
+  .achievement-link,
   .achievement-link-placeholder {
     grid-column: span 2;
   }

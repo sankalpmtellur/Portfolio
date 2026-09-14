@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { FiArrowUpRight, FiCode, FiGithub, FiLinkedin, FiMenu, FiX } from 'react-icons/fi'
-import { navItems, socialLinks } from './data/portfolio'
+import { leetcodeProfileUrl, navItems, socialLinks } from './data/portfolio'
 import { AboutSection } from './components/AboutSection'
 import { AchievementsSection } from './components/AchievementsSection'
 import { ContactSection } from './components/ContactSection'
@@ -126,8 +126,7 @@ function App() {
               const Icon = label === 'LinkedIn' ? FiLinkedin : FiGithub
               return <a key={label} href={href} target="_blank" rel="noopener noreferrer"><Icon aria-hidden="true" />{label}</a>
             })}
-            {/* Add the personal LeetCode profile URL when it is available. */}
-            <span className="footer-link-placeholder"><FiCode aria-hidden="true" />LeetCode link to add</span>
+            <a href={leetcodeProfileUrl} target="_blank" rel="noopener noreferrer"><FiCode aria-hidden="true" />LeetCode</a>
           </div>
           <div className="footer-right"><p>© {new Date().getFullYear()} Sankalp M Tellur</p><button type="button" onClick={() => scrollToId('top')}>Back to top <FiArrowUpRight aria-hidden="true" /></button></div>
         </div>
